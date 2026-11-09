@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#20382e">
+  <title>ZentBuy spreadsheet | Liens, tailles et photos QC</title>
+  <meta name="description" content="Guide du ZentBuy spreadsheet en français. Explorez les rayons de HipoBuyFind, vérifiez les liens et les tailles, puis comparez les photos QC et les frais.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="ZentBuy spreadsheet | Liens, tailles et photos QC">
+  <meta property="og:description" content="Dix rayons HipoBuyFind et des conseils pour vérifier une fiche, lire les photos de contrôle et estimer le coût livré.">
+  <!-- Recherche éditoriale. La première page de Bing n’a pas pu être vérifiée.
+       Dix sites consultés par recherche web complémentaire, sans classement Bing.
+       zentbuyspreadsheet.com — navigation par rayon et liens produit
+       zentbuy-spreadsheets.com — variantes, mesures et fiche d’origine
+       ssfinds.com — recherche par lien et photos QC
+       chinagrails.com — catégories et poids en entrepôt
+       mixfittio.com — coût livré et change
+       grails.fit — catalogue par agent et photos QC
+       w2cspreadsheet.com — frais et entrepôt
+       repsheet.net — filtres et fiches de produits
+       qcradar.com — liens source et devis d’expédition
+       zentbuy.org — contrôle de la taille, du poids et du lien source
+
+       Mots-clés secondaires suggérés
+       guide ZentBuy en français, liens produits ZentBuy, photos QC ZentBuy, frais de livraison ZentBuy
+
+       Requêtes de longue traîne suggérées
+       comment lire un ZentBuy spreadsheet, comment vérifier un lien Weidian, retrouver une annonce Taobao,
+       vérifier un lien produit 1688, comparer deux variantes d’un vêtement, retrouver la référence vendeur,
+       choisir sa pointure en centimètres, mesurer la semelle intérieure, mesurer un sweat à plat,
+       comparer la largeur d’épaules, vérifier la longueur des manches, mesurer le tour de tête,
+       vérifier la longueur d’un bracelet, comparer la composition de deux tissus, lire une photo QC,
+       vérifier un coloris sur des photos QC, demander une photo de la semelle, vérifier les coutures d’un vêtement,
+       distinguer photo vendeur et photo entrepôt, estimer le poids volumétrique,
+       calculer le coût total livré, comparer deux devis d’expédition,
+       vérifier les frais de change, vérifier la TVA selon la destination,
+       retrouver un article après un lien expiré, préparer un premier colis international. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf6eb;
+      --ink: #182b23;
+      --muted: #49584d;
+      --green: #20382e;
+      --apricot: #ffd3a6;
+      --line: #c8ccbd;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
+    h1, h2, h3, p, figure, ol { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    h1 { font-size: clamp(2.35rem, 7vw, 5.25rem); letter-spacing: -.065em; }
+    h1 span { display: block; }
+    h2 { font-size: clamp(1.65rem, 3.8vw, 2.7rem); letter-spacing: -.045em; }
+    h3 { font-size: 1.2rem; }
+    a { color: inherit; text-underline-offset: .2em; }
+    :focus-visible { outline: 3px solid #946100; outline-offset: 4px; }
+    .shell { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    .mast { border-bottom: 1px solid var(--line); }
+    .mast .shell { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1rem; padding-block: .8rem; }
+    .mast a, .rayons a { font-weight: 750; }
+    .tag { font-size: .75rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+    .rayons { margin-block: 1rem; }
+    .rayons h2 { margin-bottom: .65rem; font-size: 1.05rem; letter-spacing: 0; }
+    .rayons ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 1px; background: var(--line); list-style: none; }
+    .rayons a { display: flex; height: 100%; min-height: 2.85rem; align-items: center; padding: .4rem .65rem; background: var(--paper); font-size: .92rem; }
+    .rayons a:hover { background: var(--apricot); }
+    .opening { display: grid; grid-template-columns: 1.25fr 1fr; background: var(--green); color: var(--paper); }
+    .intro { align-self: center; padding: clamp(1.15rem, 5vw, 3.25rem); }
+    .intro p { max-width: 45ch; margin-top: .9rem; }
+    .intro .tag { margin: 0 0 .55rem; color: var(--apricot); }
+    .cover { background: #e5e8dc; color: var(--ink); display: grid; grid-template-rows: 1fr auto; }
+    img { display: block; width: 100%; height: auto; }
+    .cover img { height: 100%; aspect-ratio: 1; object-fit: contain; }
+    figcaption { padding: .45rem .7rem; font-size: .83rem; }
+    .section { margin-block: 2.8rem; }
+    .section h2 { margin-bottom: .75rem; }
+    .section > p { max-width: 68ch; }
+    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: 1rem; }
+    .gallery figure { border: 1px solid var(--line); background: #fff; }
+    .gallery img { aspect-ratio: 1; object-fit: contain; }
+    .feature { padding: clamp(1rem, 3.5vw, 2rem); background: var(--apricot); }
+    .feature ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; padding-left: 1.3rem; }
+    .feature li::marker { font-weight: 800; }
+    .feature p, .stories p { margin-top: .55rem; }
+    .stories { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .stories article { padding-top: .9rem; border-top: 3px solid var(--green); }
+    .faq { max-width: 52rem; }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; padding: .7rem .2rem; font-weight: 750; }
+    details p { padding: 0 .2rem .85rem; }
+    footer { border-top: 1px solid var(--line); padding-block: 1.4rem; color: var(--muted); }
+    footer p { margin-bottom: .4rem; }
+    @media (max-width: 48rem) {
+      .rayons ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .opening, .feature ol, .stories { grid-template-columns: 1fr; }
+      .cover img { height: auto; max-height: 22rem; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "FAQPage"],
+    "inLanguage": "fr",
+    "name": "ZentBuy spreadsheet | Liens, tailles et photos QC",
+    "description": "Guide du ZentBuy spreadsheet en français. Explorez les rayons de HipoBuyFind, vérifiez les liens et les tailles, puis comparez les photos QC et les frais.",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qu’est-ce qu’un ZentBuy spreadsheet ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "C’est un répertoire de liens vers des fiches produit, généralement classées par catégorie. Cette page propose des conseils de vérification et des liens vers les rayons de HipoBuyFind."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que faire si un lien produit a expiré ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recherchez le nom du modèle et la référence du vendeur. Vérifiez ensuite le coloris, les mesures et la disponibilité sur la nouvelle fiche."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que montrent les photos QC ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les photos de contrôle montrent les détails visibles de l’article photographié. Elles permettent de repérer un défaut apparent ou une erreur de variante. Pour établir l’authenticité, il faut une preuve de provenance vérifiable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment estimer le coût total livré ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Additionnez le prix de l’article, le transport local, les frais de service éventuels, le change, le transport international et les taxes ou droits applicables à votre destination. Vérifiez le poids et le mode de calcul du transporteur avant de comparer deux devis."
+        }
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/grabx/">
+</head>
+<body>
+  <header class="mast">
+    <div class="shell">
+      <a href="https://www.hipobuyfind.com">www.hipobuyfind.com</a>
+      <span class="tag">Guide d’achat en français</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <nav class="rayons" aria-labelledby="rayons">
+      <h2 id="rayons">Les dix rayons de HipoBuyFind</h2>
+      <ul>
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Chaussures</a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Sweats et pulls</a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirts</a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Vestes</a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pantalons et shorts</a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Casquettes et bonnets</a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Ensembles</a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Sous-vêtements</a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Maillots</a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Accessoires</a></li>
+      </ul>
+    </nav>
+
+    <section class="opening" aria-labelledby="titre">
+      <div class="intro">
+        <p class="tag">Repères avant la commande</p>
+        <h1 id="titre">ZentBuy <span>spreadsheet</span></h1>
+        <p>Un ZentBuy spreadsheet regroupe des liens vers des fiches produit. Avant de choisir, retrouvez l’annonce d’origine, vérifiez la variante et comparez les mesures.</p>
+        <p>Ce guide indépendant renvoie aux rayons de HipoBuyFind. Les images illustrent des modèles de marque et ne renseignent pas sur le stock du catalogue.</p>
+      </div>
+      <figure class="cover">
+        <img src="https://www.ego-sport.pl/hpeciai/a63432ceca39f4d6581781f14515d795/pol_pl_Nike-buty-meskie-Air-Force-1-07-CW2288-111-biale-14786_1.webp" width="1200" height="1200" alt="Nike Air Force 1 ’07 blanche à lacets, vue de profil" loading="eager" fetchpriority="high">
+        <figcaption>Nike Air Force 1 ’07 · photo d’illustration</figcaption>
+      </figure>
+    </section>
+
+    <section class="section feature" aria-labelledby="methode">
+      <h2 id="methode">De la fiche au panier en trois vérifications</h2>
+      <ol>
+        <li>
+          <h3>Identifier la variante</h3>
+          <p>Sur la fiche Weidian, Taobao ou 1688, relevez la référence vendeur, la taille et le coloris exacts. Si plusieurs variantes partagent la même photo, comparez aussi leurs intitulés.</p>
+        </li>
+        <li>
+          <h3>Comparer les mesures</h3>
+          <p>Pour une chaussure, distinguez la longueur du pied de la longueur de la semelle intérieure. Pour un vêtement, mesurez à plat une pièce que vous portez déjà, puis comparez la largeur d’épaules et la longueur des manches.</p>
+        </li>
+        <li>
+          <h3>Contrôler l’article reçu en entrepôt</h3>
+          <p>Si l’agent fournit des photos QC, comparez l’étiquette, les coutures et la semelle avec la variante choisie. Si un détail compte et reste hors cadre, demandez une vue rapprochée.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="visuels">
+      <h2 id="visuels">Quatre détails à examiner sur une photo</h2>
+      <p>Pour une veste, regardez la fermeture. Pour une casquette, vérifiez le réglage arrière. Sur un foulard, observez le bord et le motif. Pour un bracelet, demandez une vue du fermoir et sa longueur utile.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://sg.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-zip-up-jacket--FTJC10G72900_PM2_Front%20view.jpg?wid=480" width="490" height="490" loading="lazy" decoding="async" alt="Veste zippée Louis Vuitton Monogram, vue de face">
+          <figcaption>Louis Vuitton · veste</figcaption>
+        </figure>
+        <figure>
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg" width="640" height="640" loading="lazy" decoding="async" alt="Casquette Gucci en toile à motif GG">
+          <figcaption>Gucci · casquette</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/carre-90-de-toujours-brides-de-gala--001266S%2075-detail-wm-5-0-0-800-800_g.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Détail du motif Brides de Gala sur un carré Hermès">
+          <figcaption>Hermès · carré de soie</figcaption>
+        </figure>
+        <figure>
+          <img src="https://erp.vipstation.com.hk/images/itemimg/B0845CDLCYD301.jpg?v=1677135633" width="800" height="800" loading="lazy" decoding="async" alt="Bracelet doré Dior Clair D Lune à chaîne fine">
+          <figcaption>Dior · bracelet</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="articles">
+      <h2 id="articles">Deux situations fréquentes</h2>
+      <div class="stories">
+        <article>
+          <h3>Deux sweats de même taille, deux coupes</h3>
+          <p>Si un sweat arrive à la hanche et l’autre à la taille, la lettre indiquée sur l’étiquette aide peu. Comparez la longueur dos et la largeur de poitrine à plat. Vérifiez aussi si la fiche indique une largeur ou un tour complet, car les deux mesures se lisent différemment.</p>
+        </article>
+        <article>
+          <h3>Un carton léger qui coûte plus cher à expédier</h3>
+          <p>Une boîte à chaussures peut occuper beaucoup de place pour son poids. Vérifiez si le transporteur facture au poids réel ou volumétrique, puis comparez des devis avec les mêmes dimensions et la même destination. Pour une livraison en France ou en Belgique, vérifiez aussi si le devis inclut les taxes applicables.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" aria-labelledby="questions">
+      <h2 id="questions">Questions fréquentes</h2>
+      <details open>
+        <summary>Qu’est-ce qu’un ZentBuy spreadsheet ?</summary>
+        <p>C’est un répertoire de liens vers des fiches produit, généralement classées par catégorie. Cette page propose des conseils de vérification et des liens vers les rayons de HipoBuyFind.</p>
+      </details>
+      <details>
+        <summary>Que faire si un lien produit a expiré ?</summary>
+        <p>Recherchez le nom du modèle et la référence du vendeur. Vérifiez ensuite le coloris, les mesures et la disponibilité sur la nouvelle fiche.</p>
+      </details>
+      <details>
+        <summary>Que montrent les photos QC ?</summary>
+        <p>Les photos de contrôle montrent les détails visibles de l’article photographié. Elles permettent de repérer un défaut apparent ou une erreur de variante. Pour établir l’authenticité, il faut une preuve de provenance vérifiable.</p>
+      </details>
+      <details>
+        <summary>Comment estimer le coût total livré ?</summary>
+        <p>Additionnez le prix de l’article, le transport local, les frais de service éventuels, le change, le transport international et les taxes ou droits applicables à votre destination. Vérifiez le poids et le mode de calcul du transporteur avant de comparer deux devis.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <p>Guide indépendant. Les marques sont citées pour identifier les modèles illustrés.</p>
+      <a href="https://www.hipobuyfind.com">Voir le catalogue HipoBuyFind</a>
+    </div>
+  </footer>
+</body>
+</html>
